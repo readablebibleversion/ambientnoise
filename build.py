@@ -202,7 +202,10 @@ def head(title, desc, path, og_type="website", extra_ld=None, robots="index, fol
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{SITE}/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{NAME} blog" href="/feed.xml">
 <meta name="theme-color" content="#2f6f73">
@@ -444,8 +447,8 @@ def misc():
     (OUT / "manifest.webmanifest").write_text(json.dumps({
         "name": "Ambient Noise", "short_name": "Ambient Noise", "start_url": "/", "display": "standalone",
         "background_color": "#f4f1ea", "theme_color": "#2f6f73", "description": TAGLINE,
-        "icons": [{"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"}, {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, indent=2), encoding="utf-8")
-    for f in ("og.png", "icon-512.png"):
+        "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"}, {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, indent=2), encoding="utf-8")
+    for f in ("og.png", "icon-512.png", "icon-192.png", "favicon.ico", "favicon-96x96.png", "apple-touch-icon.png"):
         if (ROOT / "static" / f).exists():
             shutil.copy(ROOT / "static" / f, OUT / f)
 
