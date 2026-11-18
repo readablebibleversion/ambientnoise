@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambient Noise: Free White Noise &amp; Sleep Sound Machine Online</title>
+<meta name="description" content="Free ambient sound machine. Mix rain, ocean waves, fire, crickets and white, pink or brown noise to sleep, focus or relax. Sleep timer, no sign-up.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ambientnoise.online/">
+<meta property="og:site_name" content="Ambient Noise">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ambient Noise: Free White Noise &amp; Sleep Sound Machine">
+<meta property="og:description" content="Mix rain, waves, fire and white, pink or brown noise. Sleep timer, shareable mixes, no sign-up.">
+<meta property="og:url" content="https://ambientnoise.online/">
+<meta property="og:image" content="https://ambientnoise.online/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Ambient Noise blog" href="/feed.xml">
+<meta name="theme-color" content="#2f6f73">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://ambientnoise.online/#org","name":"Ambient Noise","url":"https://ambientnoise.online/","logo":"https://ambientnoise.online/icon-512.png"},
+ {"@type":"WebSite","@id":"https://ambientnoise.online/#site","name":"Ambient Noise","url":"https://ambientnoise.online/","publisher":{"@id":"https://ambientnoise.online/#org"}},
+ {"@type":"WebApplication","name":"Ambient Noise sound machine","url":"https://ambientnoise.online/","applicationCategory":"HealthApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free browser-based ambient sound machine: white, pink and brown noise plus rain, thunder, ocean, fireplace, birds, brook, waterfall, crickets, wind and cafe sounds, with a sleep timer and shareable mixes.","publisher":{"@id":"https://ambientnoise.online/#org"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Is Ambient Noise free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The sound machine is free to use in any modern browser, with no account or download."}},
+  {"@type":"Question","name":"What's the difference between white, pink and brown noise?","acceptedAnswer":{"@type":"Answer","text":"White noise has equal energy at all frequencies and sounds hissy. Pink noise is softer in the highs, like steady rain. Brown noise is deeper still, like a low rumble or distant surf."}},
+  {"@type":"Question","name":"Can I leave sounds playing all night?","acceptedAnswer":{"@type":"Answer","text":"Yes, at a low volume. You can also set a sleep timer from 15 minutes to 8 hours; the sound fades out over the last minute."}},
+  {"@type":"Question","name":"Where do the nature sounds come from?","acceptedAnswer":{"@type":"Answer","text":"They stream from the Internet Archive (archive.org). You can also search the Archive from the site and add any recording to your mix."}}
+ ]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1ea; --bg2:#ebe6db; --card:#fffdf8; --ink:#1f2a2e; --muted:#5d6a6e; --line:#ddd5c6;
+  --accent:#2f6f73; --accent-ink:#fff; --glow:rgba(47,111,115,.14); --warn:#8a5a1c;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1517; --bg2:#151d20; --card:#182226; --ink:#e7ece9; --muted:#97a6a6; --line:#26343a;
+  --accent:#7cc4bd; --accent-ink:#0f1517; --glow:rgba(124,196,189,.16); --warn:#e0b070;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f1517; --bg2:#151d20; --card:#182226; --ink:#e7ece9; --muted:#97a6a6; --line:#26343a;
+  --accent:#7cc4bd; --accent-ink:#0f1517; --glow:rgba(124,196,189,.16); --warn:#e0b070;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.strip{display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-size:14px;padding:9px 16px;line-height:1.4}
+.strip:hover strong{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;gap:10px;align-items:center;font-family:Fraunces,serif;font-weight:600;font-size:20px;text-decoration:none;color:var(--ink)}
+.brand svg{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+nav a:hover{color:var(--ink)}
+.icon-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;width:36px;height:36px;cursor:pointer;margin-left:14px;display:inline-grid;place-items:center}
+.hero{padding:44px 0 28px}
+.hero h1{font-family:Fraunces,serif;font-weight:400;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:0 0 14px;letter-spacing:-.01em;max-width:14ch}
+.hero p{color:var(--muted);max-width:56ch;margin:0;font-size:17px}
+
+/* transport */
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin:24px 0 0}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-top:12px;padding-bottom:12px}
+.play{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;height:44px;padding:0 20px 0 16px;font:600 15px Inter,sans-serif;display:flex;align-items:center;gap:8px;cursor:pointer}
+.play:disabled{opacity:.45;cursor:default}
+.now{color:var(--muted);font-size:14px;flex:1;min-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ctl{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+select,input[type=search]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;height:38px;padding:0 10px}
+.ghost{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;height:38px;padding:0 14px;font:500 14px Inter,sans-serif;cursor:pointer}
+.ghost:hover{border-color:var(--accent)}
+
+section{padding:40px 0 8px}
+h2{font-family:Fraunces,serif;font-weight:400;font-size:28px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:15px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.snd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,box-shadow .2s}
+.snd.on{border-color:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+.snd button.tog{all:unset;cursor:pointer;display:flex;gap:12px;align-items:center}
+.snd button.tog:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:8px}
+.ic{width:42px;height:42px;border-radius:12px;background:var(--bg2);display:grid;place-items:center;color:var(--muted);flex:none;transition:.2s}
+.snd.on .ic{background:var(--accent);color:var(--accent-ink)}
+.nm{font-weight:600;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}
+.snd.loading .meta::after{content:" · loading…"}
+.snd.err .meta{color:var(--warn)}
+input[type=range]{width:100%;accent-color:var(--accent);opacity:.35;transition:opacity .2s}
+.snd.on input[type=range]{opacity:1}
+.snd{position:relative}
+.x{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--muted);cursor:pointer;font-size:20px;line-height:1}
+.snd:has(.x) .tog{padding-right:18px}
+
+.mixes{display:flex;flex-wrap:wrap;gap:10px}
+.mix{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;text-align:left;color:var(--ink);font:inherit;min-width:180px}
+.mix:hover{border-color:var(--accent)}
+.mix b{display:block;font-weight:600;font-size:15px}
+.mix span{font-size:13px;color:var(--muted)}
+
+.search{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.search input{flex:1;min-width:200px;height:44px;font-size:15px}
+.search .play{height:44px}
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.res{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:flex-start}
+.res div{flex:1;min-width:0}
+.res b{display:block;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.res a{font-size:12px}
+.res .ghost{height:32px;font-size:13px;flex:none}
+.hint{color:var(--muted);font-size:14px}
+
+.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.use{border-top:2px solid var(--accent);padding-top:12px}
+.use h3{margin:0 0 4px;font-size:16px}
+.use p{margin:0;color:var(--muted);font-size:14px}
+.note{background:var(--bg2);border-radius:14px;padding:16px 18px;font-size:14px;color:var(--muted);margin-top:24px}
+.promo{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:8px}
+.promo h2{margin-bottom:4px}
+.promo p{margin:0;color:var(--muted);max-width:52ch;font-size:15px}
+.promo .eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.store{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:12px;padding:10px 18px;font-weight:600;flex:none}
+.store small{display:block;font-weight:400;font-size:11px;opacity:.8;line-height:1}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:13px}
+footer details{margin-top:10px}
+footer .links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:12px}
+footer .links a{color:var(--muted)}
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px}
+.post:hover{border-color:var(--accent)}
+.post span{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.post b{font-family:Fraunces,serif;font-weight:400;font-size:18px;line-height:1.3}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{margin:8px 0 0;color:var(--muted)}
+footer li{margin:4px 0;word-break:break-word}
+
+@media (max-width:640px){
+  nav a{display:none}
+  .bar .wrap{gap:8px}
+  .now{order:3;flex-basis:100%}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .snd{padding:12px}
+  .ic{width:36px;height:36px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="strip" href="https://apps.apple.com/us/app/skycalm-fear-of-flying/id6746972686" target="_blank" rel="noopener"><span>&#9992;</span> Nervous about flying? <strong>Try SkyCalm</strong>, our iPhone app for fear of flying <span aria-hidden="true">&rarr;</span></a>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2M21 12h0"/></svg>Ambient Noise</a>
+    <div>
+      <nav><a href="#mixer">Sounds</a><a href="#mixes">Mixes</a><a href="#archive">Explore</a><a href="/blog/">Blog</a><a href="#skycalm">SkyCalm</a></nav>
+      <button class="icon-btn" id="theme" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></button>
+    </div>
+  </header>
+  <div class="hero">
+    <h1>An ambient sound machine for sleep and focus.</h1>
+    <p>Mask the noise you don't want to hear. Layer rain, waves, fire and night sounds over white, pink or brown noise, set a sleep timer, and let it play. Free, with no account. The nature recordings stream from the Internet Archive.</p>
+  </div>
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <button class="play" id="playBtn" disabled><svg id="playIc" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span id="playLbl">Play</span></button>
+    <div class="now" id="now">Pick a sound to start</div>
+    <label class="ctl">Timer
+      <select id="timer"><option value="0">Off</option><option value="15">15 min</option><option value="30">30 min</option><option value="60">1 hour</option><option value="120">2 hours</option><option value="480">8 hours</option></select>
+    </label>
+    <span class="ctl" id="countdown"></span>
+    <button class="ghost" id="shareBtn">Copy mix link</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="mixer">
+    <h2>Sounds</h2>
+    <p class="sub">Tap to turn a sound on, then drag its slider. Sounds play together.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="skycalm">
+    <div class="promo">
+      <div>
+        <div class="eyebrow">For nervous flyers</div>
+        <h2>SkyCalm: Fear of Flying</h2>
+        <p>Calm sounds help on the ground. If flying makes you anxious, SkyCalm is an iPhone app built to help you through the flight.</p>
+      </div>
+      <a class="store" href="https://apps.apple.com/us/app/skycalm-fear-of-flying/id6746972686" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.8zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+        <span><small>Download on the</small>App Store</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="mixes">
+    <h2>Mixes</h2>
+    <p class="sub">Starting points. Change any slider after you pick one.</p>
+    <div class="mixes" id="mixList"></div>
+  </section>
+
+
+  <section id="archive">
+    <h2>Explore the Internet Archive</h2>
+    <p class="sub">Search thousands of free field recordings and noise tracks on archive.org and add any of them to your mix.</p>
+    <form class="search" id="searchForm">
+      <input type="search" id="q" placeholder="Try: waterfall, train, library, heavy rain, cat purring" aria-label="Search archive.org audio">
+      <button class="play" type="submit">Search</button>
+    </form>
+    <div class="results" id="results"><p class="hint">Results appear here.</p></div>
+  </section>
+
+  <section id="about">
+    <h2>Why ambient noise works</h2>
+    <p class="sub">Steady sound raises the background level, so sudden noises stand out less.</p>
+    <div class="uses">
+      <div class="use"><h3>Sleep</h3><p>Rain, brown noise and gentle waves cover traffic, snoring and neighbours.</p></div>
+      <div class="use"><h3>Focus</h3><p>Pink noise or a café murmur blocks conversations without pulling attention.</p></div>
+      <div class="use"><h3>Babies</h3><p>White noise echoes the steady whoosh a baby hears before birth.</p></div>
+      <div class="use"><h3>Tinnitus</h3><p>Soft noise can make ringing less noticeable. Ask your doctor about it.</p></div>
+    </div>
+  </section>
+
+  <section id="guides">
+    <h2>Guides from the blog</h2>
+    <p class="sub">How to get the most out of sound for sleep, focus and calm. <a href="/blog/">See all guides</a>.</p>
+    <div class="posts"><!--LATEST_POSTS--></div>
+  </section>
+
+  <section id="faq">
+    <h2>Questions</h2>
+    <div class="faq">
+      <details><summary>Is Ambient Noise free?</summary><p>Yes. The sound machine is free to use in any modern browser, with no account or download.</p></details>
+      <details><summary>What's the difference between white, pink and brown noise?</summary><p>White noise has equal energy at all frequencies and sounds hissy. Pink noise is softer in the highs, like steady rain. Brown noise is deeper still, like a low rumble or distant surf. <a href="/blog/white-pink-brown-noise/">Read the full comparison</a>.</p></details>
+      <details><summary>Can I leave sounds playing all night?</summary><p>Yes, at a low volume. You can also set a sleep timer from 15 minutes to 8 hours; the sound fades out over the last minute.</p></details>
+      <details><summary>Where do the nature sounds come from?</summary><p>They stream from the Internet Archive (archive.org). You can also search the Archive from the site and add any recording to your mix.</p></details>
+    </div>
+    <div class="note"><strong>Keep the volume low.</strong> Loud sound can damage hearing, especially over hours. Don't put speakers right next to a baby's ears. If you hear ringing or have trouble hearing, stop listening and see an audiologist or doctor.</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links"><a href="/blog/">Blog</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/sitemap/">Sitemap</a><a href="/feed.xml">RSS</a></div>
+    White, pink and brown noise are generated live in your browser. Nature recordings are streamed from the <a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a> and belong to their uploaders. Afraid of flying? Try <a href="https://apps.apple.com/us/app/skycalm-fear-of-flying/id6746972686" target="_blank" rel="noopener">SkyCalm on the App Store</a>.
+    <details><summary>Recording sources</summary><ul id="credits"></ul></details>
+  </div>
+</footer>
+
+<script>
+const IA = "https://archive.org/download/";
+const ICONS = {
+  noise:'<path d="M3 12h2M7 9v6M11 6v12M15 8v8M19 10v4"/>',
+  rain:'<path d="M7 16a4 4 0 0 1-.5-8 6 6 0 0 1 11.5 1.5A3.5 3.5 0 0 1 17 16"/><path d="M9 19l-1 2M13 19l-1 2M16 18l-1 2"/>',
+  storm:'<path d="M7 15a4 4 0 0 1-.5-8 6 6 0 0 1 11.5 1.5A3.5 3.5 0 0 1 17 15"/><path d="M12 13l-2 4h3l-2 4"/>',
+  wave:'<path d="M2 12c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>',
+  fire:'<path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 1.5-4s.5 2 2 2c0-3 1.5-5.5 1.5-8z"/>',
+  bird:'<path d="M4 14c3 0 5-2 6-5 1 3 3 4 6 4l4-3-1 4c-1 4-5 6-9 6-3 0-5-2-6-6z"/>',
+  wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"/>',
+  water:'<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/>',
+  moon:'<path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/>',
+  cup:'<path d="M4 8h13v5a6 6 0 0 1-12 0zM17 9h1.5a2.5 2.5 0 0 1 0 5H17M8 2v3M12 2v3"/>',
+  find:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>'
+};
+const SOUNDS = [
+  {id:"white", name:"White noise", icon:"noise", gen:"white", meta:"Generated"},
+  {id:"pink",  name:"Pink noise",  icon:"noise", gen:"pink",  meta:"Generated"},
+  {id:"brown", name:"Brown noise", icon:"noise", gen:"brown", meta:"Generated"},
+  {id:"rain",  name:"Rain", icon:"rain", meta:"Archive.org", item:"rain-sounds-for-sleep-2", file:"RAIN SOUNDS FOR SLEEP 2.mp3"},
+  {id:"light", name:"Light rain", icon:"rain", meta:"Archive.org", item:"rain-sounds-gentle-rain-thunderstorms", file:"Light Gentle Rain Part 1.mp3"},
+  {id:"thunder", name:"Thunderstorm", icon:"storm", meta:"Archive.org", item:"RainAndThunderstorms", file:"Greg Schwartzkopf - Rain & Thunderstorms.mp3"},
+  {id:"ocean", name:"Ocean storm", icon:"wave", meta:"Archive.org", item:"sea-front-sea-storm", file:"Sea Front Sea Storm.mp3"},
+  {id:"fire",  name:"Fireplace", icon:"fire", meta:"Archive.org", item:"relaxingsounds", file:"FIRE 2 3h Blazing Fireplace.mp3"},
+  {id:"birds", name:"Birds in rain", icon:"bird", meta:"Archive.org", item:"rain-sounds-gentle-rain-thunderstorms", file:"Birds in the Rain Part 1.mp3"},
+  {id:"dusk",  name:"Dusk by the pond", icon:"bird", meta:"Archive.org", item:"sundown-ambience-finches-ducks-crickets-frogs", file:"Sundown ambience - finches, ducks, crickets, frogs.mp3"},
+  {id:"stream",name:"Babbling brook", icon:"water", meta:"Archive.org", item:"BabblingBrook60Minutes", file:"BabblingBrook.mp3"},
+  {id:"falls", name:"Waterfall", icon:"water", meta:"Archive.org", item:"relaxingsounds", file:"Falls 2 3h (Low pitch)MountainStreamWaterfalls.mp3"},
+  {id:"night", name:"Crickets at night", icon:"moon", meta:"Archive.org", item:"CricketsAndNocturnalSounds", file:"Crickets and nocturnal sounds.mp3"},
+  {id:"wind",  name:"Wind and rain", icon:"wind", meta:"Archive.org", item:"rain-sounds-gentle-rain-thunderstorms", file:"wind-and-rain-in-iceland_48khz_ms-6137.mp3"},
+  {id:"cafe",  name:"Café", icon:"cup", meta:"Archive.org", item:"cafe-ambience-sound-effect", file:"Cafe Ambience Sound Effect.mp3"},
+];
+const MIXES = [
+  {name:"Deep sleep", desc:"Rain over brown noise", set:{rain:.7, brown:.35}},
+  {name:"Rainy cabin", desc:"Light rain and a fire", set:{light:.6, fire:.55}},
+  {name:"Summer night", desc:"Crickets and a brook", set:{night:.6, stream:.35}},
+  {name:"Storm at sea", desc:"Waves and thunder", set:{ocean:.6, thunder:.5}},
+  {name:"Deep focus", desc:"Pink noise and café", set:{pink:.3, cafe:.35}},
+  {name:"Baby sleep", desc:"Soft white noise", set:{white:.35}},
+];
+
+let ctx, master, playing = false, timerEnd = 0, timerId = null;
+const ch = {}; // id -> channel state
+
+function url(s){ return IA + encodeURIComponent(s.item) + "/" + encodeURIComponent(s.file); }
+function svg(name){ return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]||ICONS.noise}</svg>`; }
+function esc(t){ return String(t).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function audioCtx(){
+  if (!ctx){
+    ctx = new (window.AudioContext||window.webkitAudioContext)();
+    master = ctx.createGain(); master.connect(ctx.destination);
+  }
+  if (ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+function noiseBuffer(type){
+  const c = audioCtx(), len = c.sampleRate * 8, buf = c.createBuffer(2, len, c.sampleRate);
+  for (let k=0;k<2;k++){
+    const d = buf.getChannelData(k);
+    let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0,last=0;
+    for (let i=0;i<len;i++){
+      const w = Math.random()*2-1;
+      if (type==="white") d[i] = w*0.5;
+      else if (type==="pink"){
+        b0=.99886*b0+w*.0555179; b1=.99332*b1+w*.0750759; b2=.969*b2+w*.153852;
+        b3=.8665*b3+w*.3104856; b4=.55*b4+w*.5329522; b5=-.7616*b5-w*.016898;
+        d[i]=(b0+b1+b2+b3+b4+b5+b6+w*.5362)*.11; b6=w*.115926;
+      } else { last=(last+.02*w)/1.02; d[i]=last*3.5; }
+    }
+    // crossfade end into start so the loop is seamless
+    const f = 2000; for (let i=0;i<f;i++){ const t=i/f; d[len-f+i] = d[len-f+i]*(1-t) + d[i]*t; }
+  }
+  return buf;
+}
+
+function buildCard(s, removable){
+  const el = document.createElement("div");
+  el.className = "snd"; el.dataset.id = s.id;
+  el.innerHTML = `<button class="tog" aria-pressed="false"><span class="ic">${svg(s.icon)}</span><span><span class="nm">${esc(s.name)}</span><br><span class="meta">${esc(s.meta)}</span></span></button>
+    ${removable?'':''}<input type="range" min="0" max="1" step="0.01" value="0.5" aria-label="${esc(s.name)} volume">`;
+  if (removable){
+    const x = document.createElement("button"); x.className="x"; x.innerHTML="&times;"; x.title="Remove";
+    x.onclick = () => { stopCh(s.id); delete ch[s.id]; el.remove(); refresh(); };
+    el.appendChild(x);
+  }
+  ch[s.id] = {s, el, on:false, vol:.5, node:null};
+  el.querySelector(".tog").onclick = () => toggle(s.id);
+  el.querySelector("input").oninput = e => setVol(s.id, +e.target.value);
+  return el;
+}
+
+function startCh(id){
+  const c = ch[id]; if (!c || c.node) return;
+  if (c.s.gen){
+    const a = audioCtx(), src = a.createBufferSource(), g = a.createGain();
+    src.buffer = c.buf || (c.buf = noiseBuffer(c.s.gen)); src.loop = true;
+    g.gain.value = 0; src.connect(g).connect(master); src.start();
+    g.gain.setTargetAtTime(c.vol, a.currentTime, .3);
+    c.node = {src, g};
+  } else {
+    const au = c.audio || (c.audio = new Audio());
+    if (!au.src){ au.preload="none"; au.loop = true; au.src = c.s.src || url(c.s);
+      au.addEventListener("waiting", () => c.el.classList.add("loading"));
+      au.addEventListener("playing", () => { c.el.classList.remove("loading","err"); });
+      au.addEventListener("error", () => { c.el.classList.remove("loading"); c.el.classList.add("err"); c.el.querySelector(".meta").textContent="Couldn't load"; });
+    }
+    au.volume = c.vol * masterVol(); c.el.classList.add("loading");
+    au.play().catch(()=>{});
+    c.node = {au};
+  }
+}
+function stopCh(id){
+  const c = ch[id]; if (!c || !c.node) return;
+  if (c.node.src){ const {src,g}=c.node; g.gain.setTargetAtTime(0, ctx.currentTime, .15); setTimeout(()=>src.stop(), 600); }
+  else c.node.au.pause();
+  c.el.classList.remove("loading");
+  c.node = null;
+}
+function masterVol(){ return fadeLevel; }
+let fadeLevel = 1;
+function applyVol(id){
+  const c = ch[id]; if (!c || !c.node) return;
+  if (c.node.g) c.node.g.gain.setTargetAtTime(c.vol, ctx.currentTime, .05);
+  else c.node.au.volume = Math.min(1, c.vol * fadeLevel);
+}
+function setVol(id, v){
+  const c = ch[id]; c.vol = v;
+  if (!c.on && v > 0){ toggle(id); return; }
+  applyVol(id); save();
+}
+function toggle(id, force){
+  const c = ch[id]; c.on = force ?? !c.on;
+  c.el.classList.toggle("on", c.on); c.el.querySelector(".tog").setAttribute("aria-pressed", c.on);
+  if (c.on && !playing) setPlaying(true);
+  else if (c.on && playing) startCh(id);
+  else stopCh(id);
+  if (!Object.values(ch).some(x=>x.on)) setPlaying(false);
+  refresh(); save();
+}
+function setPlaying(p){
+  playing = p;
+  if (p){ audioCtx(); master.gain.value = fadeLevel = 1; Object.values(ch).forEach(c => c.on && startCh(c.s.id)); }
+  else Object.values(ch).forEach(c => stopCh(c.s.id));
+  refresh();
+}
+function refresh(){
+  const on = Object.values(ch).filter(c=>c.on);
+  const btn = document.getElementById("playBtn");
+  btn.disabled = !on.length;
+  document.getElementById("playLbl").textContent = playing ? "Pause" : "Play";
+  document.getElementById("playIc").innerHTML = playing ? '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>' : '<path d="M8 5v14l11-7z"/>';
+  document.getElementById("now").textContent = on.length ? (playing?"Playing: ":"Paused: ") + on.map(c=>c.s.name).join(", ") : "Pick a sound to start";
+  if ("mediaSession" in navigator && on.length) navigator.mediaSession.metadata = new MediaMetadata({title:on.map(c=>c.s.name).join(" + "), artist:"Ambient Noise"});
+}
+
+function applyMix(set){
+  Object.values(ch).forEach(c => { if (c.on && !(c.s.id in set)) toggle(c.s.id, false); });
+  for (const [id, v] of Object.entries(set)){
+    const c = ch[id]; if (!c) continue;
+    c.vol = v; c.el.querySelector("input").value = v;
+    if (!c.on) toggle(id, true); else applyVol(id);
+  }
+  save();
+}
+function mixString(){
+  return Object.values(ch).filter(c=>c.on && !c.s.custom).map(c=>c.s.id+":"+c.vol.toFixed(2)).join(",");
+}
+function save(){
+  const m = mixString();
+  try{ localStorage.setItem("an-mix", m); }catch(e){}
+  history.replaceState(null, "", m ? "#mix=" + m : location.pathname);
+}
+function parseMix(str){
+  const set = {}; (str||"").split(",").forEach(p => { const [k,v]=p.split(":"); if (ch[k] && !isNaN(+v)) set[k]=Math.max(0,Math.min(1,+v)); });
+  return set;
+}
+
+/* sleep timer with 60 s fade-out */
+function setTimer(min){
+  clearInterval(timerId); timerEnd = 0; document.getElementById("countdown").textContent = "";
+  if (!min) { fadeLevel = 1; if (master) master.gain.value = 1; return; }
+  timerEnd = Date.now() + min*60000;
+  timerId = setInterval(tick, 1000); tick();
+}
+function tick(){
+  const left = timerEnd - Date.now();
+  if (left <= 0){
+    setPlaying(false); setTimer(0); document.getElementById("timer").value = "0"; return;
+  }
+  const m = Math.floor(left/60000), s = Math.floor(left/1000)%60;
+  document.getElementById("countdown").textContent = `${m}:${String(s).padStart(2,"0")}`;
+  fadeLevel = Math.min(1, left/60000);
+  if (master) master.gain.value = fadeLevel;
+  Object.keys(ch).forEach(applyVol);
+}
+
+/* archive.org search */
+async function search(q){
+  const box = document.getElementById("results");
+  box.innerHTML = '<p class="hint">Searching archive.org…</p>';
+  const query = `(${q}) AND mediatype:audio AND -collection:etree AND -collection:oldtimeradio` +
+    ` AND (subject:(ambience OR ambient OR nature OR "field recording" OR "sound effects" OR noise OR relaxing OR sleep) OR title:(ambience OR sounds OR noise OR sound))`;
+  const u = "https://archive.org/advancedsearch.php?q=" + encodeURIComponent(query) +
+    "&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=downloads&sort[]=downloads+desc&rows=18&output=json";
+  try{
+    const r = await fetch(u); const j = await r.json();
+    const docs = j.response.docs;
+    if (!docs.length){ box.innerHTML = '<p class="hint">Nothing found. Try a simpler word.</p>'; return; }
+    box.innerHTML = "";
+    docs.forEach(d => {
+      const el = document.createElement("div"); el.className = "res";
+      el.innerHTML = `<span class="ic">${svg("find")}</span><div><b>${esc(d.title||d.identifier)}</b><a href="https://archive.org/details/${encodeURIComponent(d.identifier)}" target="_blank" rel="noopener">View on archive.org</a></div><button class="ghost">Add</button>`;
+      el.querySelector("button").onclick = e => addFromArchive(d, e.target);
+      box.appendChild(el);
+    });
+  }catch(e){ box.innerHTML = '<p class="hint">Couldn\'t reach archive.org. Check your connection and try again.</p>'; }
+}
+async function addFromArchive(d, btn){
+  btn.disabled = true; btn.textContent = "Adding…";
+  try{
+    const j = await (await fetch("https://archive.org/metadata/" + encodeURIComponent(d.identifier))).json();
+    const files = (j.files||[]).filter(f => /mp3|ogg/i.test(f.format||"") || /\.(mp3|ogg)$/i.test(f.name));
+    files.sort((a,b) => (+b.length||0) - (+a.length||0));
+    const f = files.find(f => /VBR MP3/i.test(f.format)) || files[0];
+    if (!f) throw 0;
+    const id = "ia-" + d.identifier;
+    if (!ch[id]){
+      const s = {id, name:(d.title||d.identifier).slice(0,60), icon:"find", meta:"From your search", custom:true, item:d.identifier, file:f.name};
+      document.getElementById("grid").appendChild(buildCard(s, true));
+      addCredit(s);
+    }
+    toggle(id, true);
+    btn.textContent = "Added";
+    ch[id].el.scrollIntoView({behavior:"smooth", block:"center"});
+  }catch(e){ btn.textContent = "No audio"; }
+}
+function addCredit(s){
+  const li = document.createElement("li");
+  li.innerHTML = `${esc(s.name)}: <a href="https://archive.org/details/${encodeURIComponent(s.item)}" target="_blank" rel="noopener">archive.org/details/${esc(s.item)}</a>`;
+  document.getElementById("credits").appendChild(li);
+}
+
+/* init */
+const grid = document.getElementById("grid");
+SOUNDS.forEach(s => { grid.appendChild(buildCard(s)); if (s.item) addCredit(s); });
+const ml = document.getElementById("mixList");
+MIXES.forEach(m => { const b = document.createElement("button"); b.className="mix"; b.innerHTML=`<b>${esc(m.name)}</b><span>${esc(m.desc)}</span>`; b.onclick=()=>applyMix(m.set); ml.appendChild(b); });
+
+document.getElementById("playBtn").onclick = () => setPlaying(!playing);
+document.getElementById("timer").onchange = e => setTimer(+e.target.value);
+document.getElementById("searchForm").onsubmit = e => { e.preventDefault(); const q = document.getElementById("q").value.trim(); if (q) search(q); };
+document.getElementById("shareBtn").onclick = async e => {
+  const b = e.target; save();
+  try{ await navigator.clipboard.writeText(location.href); b.textContent = "Copied"; }catch(_){ b.textContent = "Copy failed"; }
+  setTimeout(()=> b.textContent = "Copy mix link", 1500);
+};
+document.getElementById("theme").onclick = () => {
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme==="dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+  try{ localStorage.setItem("an-theme", r.dataset.theme); }catch(e){}
+};
+try{ const t = localStorage.getItem("an-theme"); if (t) document.documentElement.dataset.theme = t; }catch(e){}
+document.addEventListener("keydown", e => { if (e.code==="Space" && !/INPUT|SELECT|BUTTON/.test(e.target.tagName) && !document.getElementById("playBtn").disabled){ e.preventDefault(); setPlaying(!playing); } });
+
+// restore a shared or saved mix (selected but paused — browsers need a tap before audio plays)
+(function(){
+  let m = (location.hash.match(/mix=([^&]+)/)||[])[1];
+  if (!m) try{ m = localStorage.getItem("an-mix"); }catch(e){}
+  const set = parseMix(m && decodeURIComponent(m));
+  for (const [id,v] of Object.entries(set)){
+    const c = ch[id]; c.vol = v; c.on = true; c.el.classList.add("on");
+    c.el.querySelector("input").value = v; c.el.querySelector(".tog").setAttribute("aria-pressed", true);
+  }
+  refresh();
+})();
+</script>
+</body>
+</html>
